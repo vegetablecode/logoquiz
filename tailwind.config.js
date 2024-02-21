@@ -36,13 +36,13 @@ const config = {
     themes: [
       {
         light: {
-          primary: '#171c26',
+          primary: '#016974',
           secondary: '#f5cf1e',
           accent: '#d9d9d9',
           'base-100': '#f8f9fb',
           'base-200': '#f8f9fb',
           'base-300': '#ffffff',
-          neutral: '#EDEDED',
+          neutral: '#004d54',
           info: '#3abff8',
           success: '#36d399',
           warning: '#fbbd23',
