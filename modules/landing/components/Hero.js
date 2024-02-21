@@ -10,25 +10,25 @@ const Hero = () => {
     <>
       <Gallery />
       <div className="hero">
-        <div className="hero-content flex-col space-y-8 text-center">
+        <div className="hero-content max-w-3xl flex-col space-y-8 text-center">
           <div>
             <h1 className="text-3xl md:text-6xl font-black">
-              Turn your photos <br /> into interior designs ✨
+              Get a stunning logo for your brand in 12 hours or less! 🔥
             </h1>
             <h2 className="lg:py-6 py-4 text-lg md:text-xl">
-              Upload a photo of any interior and transform it into a new style!
+              Take a quick quiz and let us design a custom logo that reflects
+              your style, colors, and vision. No hassle, no hidden fees, just
+              100% satisfaction guaranteed.
             </h2>
             <button
               onClick={() => router.push('/photos')}
               className="btn btn-primary"
             >
-              Upload a photo now! ✨
+              Start the Quiz Now! ✍️
             </button>
           </div>
-          <Score />
         </div>
       </div>
-      <Logos />
     </>
   );
 };

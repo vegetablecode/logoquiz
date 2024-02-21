@@ -1,4 +1,4 @@
-const gallery = [
+export const LOGOS = [
   '/logos/dog-walking.png',
   '/logos/lawyer.png',
   '/logos/interior.png',
@@ -26,25 +26,3 @@ const gallery = [
   '/logos/taxi.png',
   '/logos/gym.png',
 ];
-
-const Gallery = () => (
-  <div className="pt-8 lg:pb-8 flex flex-col lg:space-y-16 items-center">
-    <div className="cr-wrapper">
-      <div className="cr">
-        <div className="flex space-x-4 pt-4 pb-12">
-          {gallery.map((item) => (
-            <div key={item} className="cr-slide flex">
-              <img
-                src={item}
-                alt="gallery"
-                className="h-auto w-auto shadow-xl cursor-pointer rounded-xl"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-export default Gallery;
