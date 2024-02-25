@@ -7,14 +7,14 @@ const Footer = () => {
         <nav>
           <header className="footer-title">Links</header>
           <Link
-            href="mailto:decoratlyapp@gmail.com"
+            href="mailto:superlogostore@gmail.com"
             className="link link-hover"
           >
             Support
           </Link>
-          <Link href="/blog" className="link link-hover">
+          {/* <Link href="/guides" className="link link-hover">
             Blog
-          </Link>
+          </Link> */}
         </nav>
         <nav>
           <header className="footer-title">Legal</header>
@@ -27,7 +27,7 @@ const Footer = () => {
         </nav>
         <nav>
           <header className="footer-title">About</header>
-          <div>Decoratly | 2024</div>
+          <div>SUPERLOGO | 2024</div>
         </nav>
       </footer>
     </div>

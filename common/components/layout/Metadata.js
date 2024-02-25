@@ -1,9 +1,10 @@
 const Metadata = () => {
-  const title = '🏠 Decoratly | Turn photos into interior designs';
+  const title =
+    'SUPERLOGO | Get a stunning logo for your brand in 12 hours or less!';
   const description =
-    'Redefine your space effortlessly! Upload a room photo, select a preset, and watch your space transform with our innovative interior design app. Style made simple!';
-  const imageUrl = 'https://www.decoratly.com/preview.png';
-  const url = 'www.decoratly.com';
+    'Take a quick quiz and let us design a custom logo that reflects your style, colors, and vision. No hassle, no hidden fees, just 100% satisfaction guaranteed.';
+  const imageUrl = 'https://www.superlogo.store/preview.png';
+  const url = 'www.superlogo.store';
 
   return (
     <>
@@ -16,7 +17,7 @@ const Metadata = () => {
         property="og:description"
         content={description}
       />
-      <meta property="og:site_name" content="Decoratly" />
+      <meta property="og:site_name" content="SUPERLOGO" />
       <meta property="og:url" content={`${url}`} />
       <meta name="og:image" property="og:image" content={imageUrl} />
       <meta name="twitter:card" content="summary_large_image" />

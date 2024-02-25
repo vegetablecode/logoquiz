@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const menuLinks = [
+const menuLinks_old = [
   {
     id: 'guides',
     navLink: '/guides',
@@ -15,6 +15,14 @@ const menuLinks = [
     id: 'login',
     navLink: '/login',
     label: 'Log In',
+  },
+];
+
+const menuLinks = [
+  {
+    id: 'quiz',
+    navLink: '/quiz',
+    label: 'Start the Quiz',
   },
 ];
 

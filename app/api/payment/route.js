@@ -1,8 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req) {
-  const data = await req.json();
-  console.log('data: ', data.plan);
   let priceId = process.env.STRIPE_PRICE_ID;
 
   try {
@@ -14,8 +12,8 @@ export async function POST(req) {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/quiz?success=true`,
-      cancel_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/quiz?canceled=true`,
+      success_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/quiz/success`,
+      cancel_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/quiz/error`,
     });
     return Response.json(session, {
       status: 200,

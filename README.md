@@ -1,4 +1,4 @@
-# Decoratly 🤖
+# LogoQuiz
 
 ## How to deploy
 

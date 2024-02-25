@@ -4,15 +4,15 @@ const Page = () => {
   return (
     <div className="prose text-left">
       <Metadata />
-      <h1>Privacy Policy for Decoratly</h1>
+      <h1>Privacy Policy for SUPERLOGO</h1>
       <div>Effective Date: October 17, 2023</div>
 
-      <div>Decoratly - Turn photos into interior designs</div>
+      <div>SUPERLOGO - Turn photos into interior designs</div>
 
       <p>
-        Welcome to Decoratly! This Privacy Policy outlines how we collect, use,
+        Welcome to SUPERLOGO! This Privacy Policy outlines how we collect, use,
         and protect your data when you use our website at
-        https://www.decoratly.com and our services, including our Stripe
+        https://www.SUPERLOGO.com and our services, including our Stripe
         application.
       </p>
 
@@ -66,10 +66,10 @@ const Page = () => {
       <p>
         Contact Us <br />
         If you have any questions or concerns regarding this Privacy Policy or
-        our data practices, please contact us at decoratlyapp@gmail.com.
+        our data practices, please contact us at superlogostore@gmail.com.
       </p>
 
-      <p>Thank you for using Decoratly - your personal AI interior designer.</p>
+      <p>Thank you for using SUPERLOGO - your personal AI interior designer.</p>
     </div>
   );
 };

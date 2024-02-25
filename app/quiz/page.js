@@ -3,11 +3,14 @@ import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import classNames from 'common/utils/classNames';
 import randomize from 'common/utils/randomize';
 import { LOGOS } from 'modules/logo/consts';
+import { createCheckoutSession } from 'modules/payment/lib';
 import Carousel from 'modules/quiz/Carousel';
 import ModePicker from 'modules/quiz/ModePicker';
 import ShapePicker from 'modules/quiz/ShapePicker';
 import StylePicker from 'modules/quiz/StylePicker';
+import { addNewOrder } from 'modules/quiz/lib';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const Page = () => {
@@ -20,6 +23,8 @@ const Page = () => {
   const [image, setImage] = useState('');
   const [email, setEmail] = useState('');
   const [gallery, setGallery] = useState([]);
+
+  const router = useRouter();
 
   const updateGallery = () => {
     if (step === 0) {
@@ -58,6 +63,15 @@ const Page = () => {
   useEffect(() => {
     setGallery([]);
   }, [step]);
+
+  const saveAndPay = async () => {
+    await addNewOrder(shape, businessInfo, style, mode, logo, image, email);
+    const session = await createCheckoutSession();
+    console.log(session);
+    if (session?.url) {
+      router.push(session.url);
+    }
+  };
 
   const renderStep0 = () => (
     <>
@@ -262,7 +276,7 @@ const Page = () => {
     <>
       <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
         <div className="flex flex-col space-y-2">
-          <div className="text-4xl font-semibold">$39</div>
+          <div className="text-4xl font-semibold">$49</div>
           <div>3 proposals + 2 revisions ✅</div>
           <div>12 hour delivery 💨</div>
         </div>
@@ -291,51 +305,13 @@ const Page = () => {
           </div>
         </div>
         <div></div>
-        <button onClick={() => setStep(8)} className="btn btn-primary">
-          Pay - $39 USD
+        <button onClick={() => saveAndPay()} className="btn btn-primary">
+          Pay - $49 USD
         </button>
       </div>
     </>
   );
 
-  const renderStep8 = () => (
-    <>
-      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
-        <div className="flex flex-col space-y-2">
-          <div className="text-4xl font-semibold">💸</div>
-          <div>
-            You've paid for the logo <br /> successfully!
-          </div>
-        </div>
-      </div>
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
-        <div className="flex flex-col space-y-4">
-          <div>
-            <div>
-              Thank you for ordering the logo design from Superlogo. We
-              appreciate your trust in our service. Your logo will be ready in
-              the next 12 hours. We will send you an e-mail when it's done.
-            </div>
-            <div className="text-2xl pt-2 font-bold">What's next? 🤔</div>
-
-            <div className="pt-2 flex flex-col space-y-2">
-              <div>👉 you'll receive an e-mail confirmation</div>
-              <div>👉 in the next 12h you'll get 3 logo proposals</div>
-              <div>
-                You'll be able to download your logo right away or to ask for up
-                two 2 additional revisions ✨
-              </div>
-            </div>
-          </div>
-        </div>
-        <Link className="w-full" href="/">
-          <button className="btn w-full btn-primary">
-            Go back to home page
-          </button>
-        </Link>
-      </div>
-    </>
-  );
   return (
     <div className="h-screen w-full bg-gradient-to-b from-[#005B64] to-[#016D79]">
       <div className="px-5 pt-3">
@@ -353,7 +329,6 @@ const Page = () => {
       {step === 5 ? renderStep5() : ''}
       {step === 6 ? renderStep6() : ''}
       {step === 7 ? renderStep7() : ''}
-      {step === 8 ? renderStep8() : ''}
     </div>
   );
 };

@@ -1,18 +1,19 @@
 import Metadata from 'common/components/layout/Metadata';
+import Link from 'next/link';
 
 const Page = () => {
   return (
     <div className="prose text-left">
       <Metadata />
-      <h1>Terms and Conditions for Decoratly</h1>
+      <h1>Terms and Conditions for SUPERLOGO</h1>
       <div>Effective Date: October 17, 2023</div>
 
-      <div>Decoratly - Turn photos into interior designs</div>
+      <div>SUPERLOGO - Professional logo designs</div>
 
       <p>
-        These Terms of Service ("Terms") govern your use of the Decoratly
-        website ("Website") and the services provided by Decoratly, including
-        its Stripe application ("App"). Decoratly is committed to helping Stripe
+        These Terms of Service ("Terms") govern your use of the SUPERLOGO
+        website ("Website") and the services provided by SUPERLOGO, including
+        its Stripe application ("App"). SUPERLOGO is committed to helping Stripe
         users reduce and prevent disputes and chargebacks. By using our Website
         and App, you agree to comply with these Terms.
       </p>
@@ -57,7 +58,7 @@ const Page = () => {
 
       <p>
         5. Dispute Prevention <br />
-        Decoratly is committed to helping Stripe users reduce and prevent
+        SUPERLOGO is committed to helping Stripe users reduce and prevent
         disputes and chargebacks. We do not guarantee that our services will
         prevent all disputes and chargebacks. We are not responsible for any
         disputes or chargebacks that occur while using our services.
@@ -66,11 +67,15 @@ const Page = () => {
       <p>
         6. Contact Us <br />
         If you have any questions or concerns about these Terms or our services,
-        please contact us at decoratlyapp@gmail.com.
+        please contact us at{' '}
+        <Link href="mailto:superlogostore@gmail.com">
+          <span className="underline">superlogostore@gmail.com</span>
+        </Link>
+        .
       </p>
 
       <p>
-        Thank you for choosing Decoratly. We look forward to assisting you in
+        Thank you for choosing SUPERLOGO. We look forward to assisting you in
         decorating your interiors with AI.
       </p>
     </div>
