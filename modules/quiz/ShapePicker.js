@@ -6,8 +6,8 @@ const options = [
     label: 'Text under the image',
     icon: (
       <div className="flex flex-col space-y-2 items-center">
-        <div className="bg-gray-200 h-12 w-12 rounded-full" />
-        <div className="bg-gray-200 h-4 rounded-lg w-24" />
+        <div className="bg-gray-200 h-10 w-10 rounded-full" />
+        <div className="bg-gray-200 h-3 rounded-lg w-24" />
       </div>
     ),
   },
@@ -18,7 +18,7 @@ const options = [
     icon: (
       <div className="flex space-x-2 items-center">
         <div className="bg-gray-200 h-10 w-10 rounded-full" />
-        <div className="bg-gray-200 h-4 rounded-lg w-24" />
+        <div className="bg-gray-200 h-3 rounded-lg w-24" />
       </div>
     ),
   },
@@ -27,8 +27,8 @@ const options = [
     label: 'Text on the image',
     icon: (
       <div className="flex space-x-2 items-center">
-        <div className="bg-gray-200 flex items-center justify-center h-16 w-16 rounded-full">
-          <div className="bg-gray-200 h-4 rounded-lg w-16 border-2 border-white" />
+        <div className="bg-gray-200 flex items-center justify-center h-12 w-12 rounded-full">
+          <div className="bg-gray-200 h-4 rounded-lg w-12 border-2 border-white" />
         </div>
       </div>
     ),
@@ -38,7 +38,7 @@ const options = [
     label: 'Image only',
     icon: (
       <div className="flex space-x-2 items-center">
-        <div className="bg-gray-200 h-16 w-16 rounded-full" />
+        <div className="bg-gray-200 h-12 w-12 rounded-full" />
       </div>
     ),
   },
@@ -46,7 +46,7 @@ const options = [
 
 const ShapePicker = ({ shape, setShape }) => {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-2">
       {options.map((item) => (
         <button
           onClick={() => setShape(item.id)}
@@ -55,7 +55,7 @@ const ShapePicker = ({ shape, setShape }) => {
             item.id === shape ? 'border-primary' : 'border-gray-200'
           )}
         >
-          <div>{item.label}</div>
+          <div className="text-sm">{item.label}</div>
           <div className="h-full flex items-center justify-center">
             <div>{item.icon}</div>
           </div>

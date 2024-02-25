@@ -76,7 +76,7 @@ const Page = () => {
   const renderStep0 = () => (
     <>
       {shape === '' ? (
-        <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+        <div className="text-center p-8 py-8 text-white flex flex-col space-y-4">
           <div className="font-semibold text-xl">Hello 👋</div>
           <div>
             Let's choose a layout <br /> of your logo first! ⬇️
@@ -85,7 +85,7 @@ const Page = () => {
       ) : (
         <Carousel gallery={gallery} />
       )}
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div className="text-2xl font-bold">Select a layout 📦</div>
           <ShapePicker shape={shape} setShape={setShape} />
@@ -100,7 +100,7 @@ const Page = () => {
   const renderStep1 = () => (
     <>
       {style === '' ? (
-        <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+        <div className="text-center p-8 py-8 text-white flex flex-col space-y-4">
           <div className="text-4xl">✨</div>
           <div>
             What style do you want <br /> your logo to have? 🎨
@@ -109,7 +109,7 @@ const Page = () => {
       ) : (
         <Carousel gallery={gallery} />
       )}
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div className="text-2xl font-bold">Select a style</div>
           <StylePicker style={style} setStyle={setStyle} />
@@ -124,7 +124,7 @@ const Page = () => {
   const renderStep2 = () => (
     <>
       {mode === '' ? (
-        <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+        <div className="text-center p-8 py-8 text-white flex flex-col space-y-4">
           <div className="text-4xl">🌙</div>
           <div>
             Do you prefer dark mode <br /> or light mode for your logo?
@@ -133,7 +133,7 @@ const Page = () => {
       ) : (
         <Carousel gallery={gallery} />
       )}
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div className="text-2xl font-bold">Select logo theme</div>
           <ModePicker mode={mode} setMode={setMode} />
@@ -147,11 +147,11 @@ const Page = () => {
 
   const renderStep3 = () => (
     <>
-      <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+      <div className="text-center p-8 py-8 text-white flex flex-col space-y-4">
         <div className="text-4xl">🏢</div>
         <div>What does your company do?</div>
       </div>
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div>
             <div className="text-2xl font-bold">Business Information</div>
@@ -178,13 +178,13 @@ const Page = () => {
 
   const renderStep4 = () => (
     <>
-      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+      <div className="text-center p-8 py-8 text-white flex justify-center items-center flex-col space-y-4">
         <div className="w-24 h-24 card bg-black bg-opacity-30"></div>
         <div className="h-7 card bg-black border-2 border-cyan-400 min-w-36 px-2 bg-opacity-30">
           {logo}
         </div>
       </div>
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div>
             <div className="text-2xl font-bold">Logo text setup</div>
@@ -211,13 +211,13 @@ const Page = () => {
 
   const renderStep5 = () => (
     <>
-      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+      <div className="text-center p-8 py-8 text-white flex justify-center items-center flex-col space-y-4">
         <div className="w-24 h-24 card bg-black border-2 border-cyan-300 bg-opacity-30"></div>
         <div className="h-7 card bg-black min-w-36 px-2 bg-opacity-30">
           {logo}
         </div>
       </div>
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div>
             <div className="text-2xl font-bold">Logo image setup</div>
@@ -243,11 +243,11 @@ const Page = () => {
 
   const renderStep6 = () => (
     <>
-      <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+      <div className="text-center p-8 py-8 text-white flex flex-col space-y-4">
         <div className="text-4xl">✉️</div>
         <div>What is your e-mail address?</div>
       </div>
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div>
             <div className="text-2xl font-bold">Enter your e-mail address</div>
@@ -274,14 +274,14 @@ const Page = () => {
 
   const renderStep7 = () => (
     <>
-      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+      <div className="text-center p-8 py-8 text-white flex justify-center items-center flex-col space-y-4">
         <div className="flex flex-col space-y-2">
           <div className="text-4xl font-semibold">$49</div>
           <div>3 proposals + 2 revisions ✅</div>
           <div>12 hour delivery 💨</div>
         </div>
       </div>
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div>
             <div className="text-2xl font-bold">What you'll get?</div>
@@ -292,15 +292,6 @@ const Page = () => {
               <div>✓ 3 proposals</div>
               <div>✓ full ownership</div>
               <div>✓ trademarkable</div>
-            </div>
-            <div className="text-2xl pt-2 font-bold">After the payment</div>
-            <div className="pt-2 flex flex-col space-y-2">
-              <div>👉 you'll receive an e-mail confirmation</div>
-              <div>👉 in the next 12h you'll get 3 logo proposals</div>
-              <div>
-                You'll be able to download your logo right away or to ask for up
-                two 2 additional revisions ✨
-              </div>
             </div>
           </div>
         </div>
@@ -313,7 +304,7 @@ const Page = () => {
   );
 
   return (
-    <div className="h-screen w-full bg-gradient-to-b from-[#005B64] to-[#016D79]">
+    <div className="h-[80vh] w-full bg-gradient-to-b from-[#005B64] to-[#016D79]">
       <div className="px-5 pt-3">
         <progress
           className="progress progress-secondary w-full"

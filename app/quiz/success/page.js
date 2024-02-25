@@ -10,7 +10,7 @@ const Page = () => {
           max="9"
         ></progress>
       </div>
-      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+      <div className="text-center p-8 pt-8 text-white flex justify-center items-center flex-col space-y-4">
         <div className="flex flex-col space-y-2">
           <div className="text-4xl font-semibold">💸</div>
           <div>
@@ -18,7 +18,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+      <div className="bg-white fixed bottom-0 w-full h-[445px] rounded-t-[30px] p-6 flex flex-col justify-between">
         <div className="flex flex-col space-y-4">
           <div>
             <div>
