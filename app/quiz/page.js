@@ -1,132 +1,359 @@
 'use client';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import classNames from 'common/utils/classNames';
+import randomize from 'common/utils/randomize';
 import { LOGOS } from 'modules/logo/consts';
+import Carousel from 'modules/quiz/Carousel';
+import ModePicker from 'modules/quiz/ModePicker';
+import ShapePicker from 'modules/quiz/ShapePicker';
+import StylePicker from 'modules/quiz/StylePicker';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const Gallery = ({ gallery }) => (
-  <div className="flex flex-col lg:space-y-16 items-center">
-    <div className="cr-wrapper">
-      <div className="cr">
-        <div className="flex space-x-4 pt-4 pb-8">
-          {gallery.map((item) => (
-            <div key={item} className="cr-slide flex">
-              <img
-                src={item}
-                alt="gallery"
-                className="h-auto w-auto shadow-xl cursor-pointer rounded-xl"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-const options = [
-  {
-    id: 'vertical',
-    label: 'Text under the image',
-    icon: (
-      <div className="flex flex-col space-y-2 items-center">
-        <div className="bg-gray-200 h-12 w-12 rounded-full" />
-        <div className="bg-gray-200 h-4 rounded-lg w-24" />
-      </div>
-    ),
-  },
-
-  {
-    id: 'horizontal',
-    label: 'Text after the image',
-    icon: (
-      <div className="flex space-x-2 items-center">
-        <div className="bg-gray-200 h-10 w-10 rounded-full" />
-        <div className="bg-gray-200 h-4 rounded-lg w-24" />
-      </div>
-    ),
-  },
-  {
-    id: 'hybrid',
-    label: 'Text on the image',
-    icon: (
-      <div className="flex space-x-2 items-center">
-        <div className="bg-gray-200 flex items-center justify-center h-16 w-16 rounded-full">
-          <div className="bg-gray-200 h-4 rounded-lg w-16 border-2 border-white" />
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 'image',
-    label: 'Image only',
-    icon: (
-      <div className="flex space-x-2 items-center">
-        <div className="bg-gray-200 h-16 w-16 rounded-full" />
-      </div>
-    ),
-  },
-];
-
-const Picker = ({ shape, setShape }) => (
-  <div className="grid grid-cols-2 gap-4">
-    {options.map((item) => (
-      <button
-        onClick={() => setShape(item.id)}
-        className={classNames(
-          'w-full h-full space-y-2 border-2 card py-4 px-2 text-center flex items-center flex-col',
-          item.id === shape ? 'border-primary' : 'border-gray-200'
-        )}
-      >
-        <div>{item.label}</div>
-        <div className="h-full flex items-center justify-center">
-          <div>{item.icon}</div>
-        </div>
-      </button>
-    ))}
-  </div>
-);
-
 const Page = () => {
+  const [step, setStep] = useState(0);
   const [shape, setShape] = useState('');
+  const [businessInfo, setBusinessInfo] = useState('');
+  const [style, setStyle] = useState('');
+  const [mode, setMode] = useState('');
+  const [logo, setLogo] = useState('');
+  const [image, setImage] = useState('');
+  const [email, setEmail] = useState('');
   const [gallery, setGallery] = useState([]);
 
   const updateGallery = () => {
-    setGallery(
-      LOGOS.filter((logo) => logo.layout === shape).map((item) => item.image)
-    );
+    if (step === 0) {
+      setGallery(
+        randomize(
+          LOGOS.filter((logo) => logo.layout === shape).map(
+            (item) => item.image
+          )
+        )
+      );
+    }
+    if (step === 1) {
+      setGallery(
+        randomize(
+          LOGOS.filter((logo) => logo.styles.includes(style)).map(
+            (item) => item.image
+          )
+        )
+      );
+    }
+    if (step === 2) {
+      setGallery(
+        randomize(
+          LOGOS.filter((logo) =>
+            mode === 'Dark mode' ? logo.darkMode : !logo.darkMode
+          ).map((item) => item.image)
+        )
+      );
+    }
   };
 
   useEffect(() => {
     updateGallery();
-  }, [shape]);
+  }, [shape, style, mode]);
 
+  useEffect(() => {
+    setGallery([]);
+  }, [step]);
+
+  const renderStep0 = () => (
+    <>
+      {shape === '' ? (
+        <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+          <div className="font-semibold text-xl">Hello 👋</div>
+          <div>
+            Let's choose a layout <br /> of your logo first! ⬇️
+          </div>
+        </div>
+      ) : (
+        <Carousel gallery={gallery} />
+      )}
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div className="text-2xl font-bold">Select a layout 📦</div>
+          <ShapePicker shape={shape} setShape={setShape} />
+        </div>
+        <button onClick={() => setStep(1)} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep1 = () => (
+    <>
+      {style === '' ? (
+        <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+          <div className="text-4xl">✨</div>
+          <div>
+            What style do you want <br /> your logo to have? 🎨
+          </div>
+        </div>
+      ) : (
+        <Carousel gallery={gallery} />
+      )}
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div className="text-2xl font-bold">Select a style</div>
+          <StylePicker style={style} setStyle={setStyle} />
+        </div>
+        <button onClick={() => setStep(2)} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep2 = () => (
+    <>
+      {mode === '' ? (
+        <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+          <div className="text-4xl">🌙</div>
+          <div>
+            Do you prefer dark mode <br /> or light mode for your logo?
+          </div>
+        </div>
+      ) : (
+        <Carousel gallery={gallery} />
+      )}
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div className="text-2xl font-bold">Select logo theme</div>
+          <ModePicker mode={mode} setMode={setMode} />
+        </div>
+        <button onClick={() => setStep(3)} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep3 = () => (
+    <>
+      <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+        <div className="text-4xl">🏢</div>
+        <div>What does your company do?</div>
+      </div>
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div>
+            <div className="text-2xl font-bold">Business Information</div>
+            <div className="pt-2">
+              Please enter a short description of your company’s products or
+              services. This will help us generate a logo that matches your
+              business.
+            </div>
+          </div>
+          <textarea
+            className="textarea"
+            placeholder="ex. 'I offer interior design services'"
+            onChange={(e) => setBusinessInfo(e.target.value)}
+            value={businessInfo}
+          ></textarea>
+        </div>
+        <div></div>
+        <button onClick={() => setStep(4)} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep4 = () => (
+    <>
+      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+        <div className="w-24 h-24 card bg-black bg-opacity-30"></div>
+        <div className="h-7 card bg-black border-2 border-cyan-400 min-w-36 px-2 bg-opacity-30">
+          {logo}
+        </div>
+      </div>
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div>
+            <div className="text-2xl font-bold">Logo text setup</div>
+            <div className="pt-2">
+              Please enter the name of your company or any slogan or tagline you
+              want to use. You can also leave this blank if you only want an
+              image logo.
+            </div>
+          </div>
+          <input
+            className="input"
+            placeholder="ex. 'I offer interior design services'"
+            onChange={(e) => setLogo(e.target.value)}
+            value={logo}
+          />
+        </div>
+        <div></div>
+        <button onClick={() => setStep(5)} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep5 = () => (
+    <>
+      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+        <div className="w-24 h-24 card bg-black border-2 border-cyan-300 bg-opacity-30"></div>
+        <div className="h-7 card bg-black min-w-36 px-2 bg-opacity-30">
+          {logo}
+        </div>
+      </div>
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div>
+            <div className="text-2xl font-bold">Logo image setup</div>
+            <div className="pt-2">
+              Please describe what you want your logo to look like. Do you have
+              a particular symbol or object in mind that you'd like to include?
+            </div>
+          </div>
+          <textarea
+            className="textarea"
+            placeholder="ex. 'a launching rocket with a colorful background'"
+            onChange={(e) => setImage(e.target.value)}
+            value={image}
+          />
+        </div>
+        <div></div>
+        <button onClick={() => setStep(6)} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep6 = () => (
+    <>
+      <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
+        <div className="text-4xl">✉️</div>
+        <div>What is your e-mail address?</div>
+      </div>
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div>
+            <div className="text-2xl font-bold">Enter your e-mail address</div>
+            <div className="pt-2">
+              Please enter your e-mail address so we can send you your logo file
+              and any updates or revisions. We will not share your e-mail with
+              anyone else.
+            </div>
+          </div>
+          <input
+            className="input"
+            placeholder="e.g., john@example.com"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+        </div>
+        <div></div>
+        <button onClick={() => setStep(7)} className="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep7 = () => (
+    <>
+      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+        <div className="flex flex-col space-y-2">
+          <div className="text-4xl font-semibold">$39</div>
+          <div>3 proposals + 2 revisions ✅</div>
+          <div>12 hour delivery 💨</div>
+        </div>
+      </div>
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div>
+            <div className="text-2xl font-bold">What you'll get?</div>
+            <div className="pt-2 flex flex-col space-y-2">
+              <div>✓ .PNG format (2800px)</div>
+              <div>✓ 12h delivery</div>
+              <div>✓ 2 revisions</div>
+              <div>✓ 3 proposals</div>
+              <div>✓ full ownership</div>
+              <div>✓ trademarkable</div>
+            </div>
+            <div className="text-2xl pt-2 font-bold">After the payment</div>
+            <div className="pt-2 flex flex-col space-y-2">
+              <div>👉 you'll receive an e-mail confirmation</div>
+              <div>👉 in the next 12h you'll get 3 logo proposals</div>
+              <div>
+                You'll be able to download your logo right away or to ask for up
+                two 2 additional revisions ✨
+              </div>
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <button onClick={() => setStep(8)} className="btn btn-primary">
+          Pay - $39 USD
+        </button>
+      </div>
+    </>
+  );
+
+  const renderStep8 = () => (
+    <>
+      <div className="text-center p-8 pt-16 text-white flex justify-center items-center flex-col space-y-4">
+        <div className="flex flex-col space-y-2">
+          <div className="text-4xl font-semibold">💸</div>
+          <div>
+            You've paid for the logo <br /> successfully!
+          </div>
+        </div>
+      </div>
+      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
+        <div className="flex flex-col space-y-4">
+          <div>
+            <div>
+              Thank you for ordering the logo design from Superlogo. We
+              appreciate your trust in our service. Your logo will be ready in
+              the next 12 hours. We will send you an e-mail when it's done.
+            </div>
+            <div className="text-2xl pt-2 font-bold">What's next? 🤔</div>
+
+            <div className="pt-2 flex flex-col space-y-2">
+              <div>👉 you'll receive an e-mail confirmation</div>
+              <div>👉 in the next 12h you'll get 3 logo proposals</div>
+              <div>
+                You'll be able to download your logo right away or to ask for up
+                two 2 additional revisions ✨
+              </div>
+            </div>
+          </div>
+        </div>
+        <Link className="w-full" href="/">
+          <button className="btn w-full btn-primary">
+            Go back to home page
+          </button>
+        </Link>
+      </div>
+    </>
+  );
   return (
     <div className="h-screen w-full bg-gradient-to-b from-[#005B64] to-[#016D79]">
       <div className="px-5 pt-3">
         <progress
           className="progress progress-secondary w-full"
-          value="70"
-          max="100"
+          value={step + 1}
+          max="9"
         ></progress>
       </div>
-      {shape === '' ? (
-        <div className="text-center p-8 pt-16 text-white flex flex-col space-y-4">
-          <div className="font-semibold text-xl">Hello 👋</div>
-          <div>Let's choose a shape first</div>
-          <div className="opacity-80 text-sm">
-            choose what you want to create 👇
-          </div>
-        </div>
-      ) : (
-        <Gallery gallery={gallery} />
-      )}
-      <div className="bg-white fixed bottom-0 w-full h-[calc(100vh-280px)] rounded-t-[30px] p-6 flex flex-col justify-between">
-        <div className="flex flex-col space-y-4">
-          <div className="text-2xl font-bold">Select a shape</div>
-          <Picker shape={shape} setShape={setShape} />
-        </div>
-        <button className="btn btn-primary">Next</button>
-      </div>
+      {step === 0 ? renderStep0() : ''}
+      {step === 1 ? renderStep1() : ''}
+      {step === 2 ? renderStep2() : ''}
+      {step === 3 ? renderStep3() : ''}
+      {step === 4 ? renderStep4() : ''}
+      {step === 5 ? renderStep5() : ''}
+      {step === 6 ? renderStep6() : ''}
+      {step === 7 ? renderStep7() : ''}
+      {step === 8 ? renderStep8() : ''}
     </div>
   );
 };

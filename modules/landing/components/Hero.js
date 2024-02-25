@@ -2,6 +2,7 @@ import { useRouter } from 'next/navigation';
 import Gallery from './Gallery';
 import Score from './Score';
 import Logos from './Logos';
+import Link from 'next/link';
 
 const Hero = () => {
   const router = useRouter();
@@ -20,12 +21,14 @@ const Hero = () => {
               your style, colors, and vision. No hassle, no hidden fees, just
               100% satisfaction guaranteed.
             </h2>
-            <button
-              onClick={() => router.push('/photos')}
-              className="btn btn-primary"
-            >
-              Start the Quiz Now! ✍️
-            </button>
+            <Link href="/quiz">
+              <button
+                onClick={() => router.push('/photos')}
+                className="btn btn-primary text-lg"
+              >
+                Start the Quiz Now! ✍️
+              </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -3,22 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export async function POST(req) {
   const data = await req.json();
   console.log('data: ', data.plan);
-  let priceId = '';
-
-  switch (data.plan) {
-    case 'day':
-      priceId = process.env.STRIPE_PRICE_ID_DAY;
-      break;
-    case 'week':
-      priceId = process.env.STRIPE_PRICE_ID_WEEK;
-      break;
-    case 'month':
-      priceId = process.env.STRIPE_PRICE_ID_MONTH;
-      break;
-    default:
-      priceId = process.env.STRIPE_PRICE_ID_DAY;
-      break;
-  }
+  let priceId = process.env.STRIPE_PRICE_ID;
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -29,8 +14,8 @@ export async function POST(req) {
         },
       ],
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/photos?success=true&plan=${data.plan}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/photos?canceled=true`,
+      success_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/quiz?success=true`,
+      cancel_url: `${process.env.NEXT_PUBLIC_HOSTNAME}/quiz?canceled=true`,
     });
     return Response.json(session, {
       status: 200,

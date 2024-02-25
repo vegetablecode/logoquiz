@@ -1,10 +1,8 @@
 'use client';
 
-import Metadata from 'common/components/layout/Metadata';
 import Footer from 'modules/landing/components/Footer';
 import Hero from 'modules/landing/components/Hero';
 import Navbar from 'modules/landing/components/Navbar';
-import Showcase from 'modules/landing/components/Showcase';
 import { LOGOS } from 'modules/landing/consts';
 import Link from 'next/link';
 
@@ -44,14 +42,14 @@ const Step = ({ icon, title, description }) => (
 );
 
 const Preview = () => (
-  <div className="py-12 flex flex-col items-center justify-center space-y-4 bg-gray-800 text-white ">
+  <div className="py-24 flex flex-col items-center justify-center space-y-4 bg-gray-800 text-white ">
     <div className="flex flex-col items-center justify-center space-y-2">
       <h2 className="text-3xl sm:text-5xl max-w-xl text-center font-bold">
         How to get your perfect logo in 3 easy steps?
       </h2>
-      <div>Just follow these 3 simple steps:</div>
+      <div className="pt-4">Just follow these 3 simple steps:</div>
     </div>
-    <div className="py-6 flex space-x-4">
+    <div className="py-6 md:flex-row flex-col flex px-4 space-y-16 md:space-y-0 md:space-x-4">
       <Step
         icon="✍️"
         title="Take a QUIZ"
@@ -72,12 +70,12 @@ const Preview = () => (
 );
 
 const Portfolio = () => (
-  <div className="flex flex-col space-y-4 items-center justify-center">
+  <div className="flex flex-col py-12 space-y-4 items-center justify-center">
     <h2 className="text-3xl sm:text-5xl max-w-xl text-center font-bold">
       Portfolio
     </h2>
-    <div>Here are some of logos we created</div>
-    <div className="grid grid-cols-5 gap-4 ">
+    <div className="pt-1 pb-5">Here are some of logos we created</div>
+    <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 ">
       {LOGOS.map((item) => (
         <img src={item} className="card shadow-xl" />
       ))}
@@ -121,8 +119,8 @@ const AboutUs = () => (
     <h2 className="text-3xl sm:text-5xl max-w-xl text-center font-bold">
       What our customers say about us
     </h2>
-    <div>Here are some of logos we created</div>
-    <div className="grid grid-cols-3 gap-4">
+    <div className="pt-2 pb-6">Here are some of our reviews ✅</div>
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {ABOUT.map((item) => (
         <div className="bg-white overflow-hidden card flex flex-col shadow-xl justify-between w-full">
           <div>
@@ -167,12 +165,12 @@ const FAQ = () => (
       <h2 className="text-3xl sm:text-5xl max-w-xl font-bold">
         Frequently asked questions
       </h2>
-      <div>Here are some of logos we created</div>
+      <div className="pt-3 pb-4">Browse most asked questions</div>
     </div>
     {ANSWERS.map(({ answer, question }) => (
-      <div className="collapse collapse-arrow bg-white">
+      <div className="collapse collapse-arrow bg-white p-2">
         <input type="radio" name="my-accordion-2" defaultChecked />
-        <div className="collapse-title text-xl font-medium">{question}</div>
+        <div className="collapse-title text-lg font-semibold">{question}</div>
         <div className="collapse-content">
           <p>{answer}</p>
         </div>
@@ -182,7 +180,7 @@ const FAQ = () => (
 );
 
 const BottomHook = () => (
-  <div className="bg-[url('/logos.jpg')] h-64 overflow-hidden w-full card">
+  <div className="bg-[url('/logos.jpg')] h-64 overflow-hidden my-12 w-full card">
     <div className="bg-black w-full h-full bg-opacity-80">
       <div className="text-center flex text-white h-full flex-col items-center justify-center space-y-4">
         <div className="text-xl font-bold">Ready to get your logo?</div>
@@ -191,7 +189,9 @@ const BottomHook = () => (
           fun. You will get a stunning logo for your brand in 12 hours or less,
           or your money back.
         </div>
-        <button className="btn">I want my logo!</button>
+        <Link href="/quiz">
+          <button className="btn">I want my logo!</button>
+        </Link>
       </div>
     </div>
   </div>
@@ -200,7 +200,7 @@ const BottomHook = () => (
 const Page = () => {
   return (
     <>
-      <div className="w-full px-4 sm:px-8 py-4 max-w-7xl mx-auto">
+      <div className="w-full px-4 sm:px-8 pt-8 pb-16 max-w-7xl mx-auto">
         <Navbar />
         <Hero />
       </div>

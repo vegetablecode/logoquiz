@@ -2,15 +2,12 @@ import { db } from 'common/config/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import moment from 'moment';
 
-export const createCheckoutSession = async (plan) => {
+export const createCheckoutSession = async () => {
   const response = await fetch('/api/payment', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      plan: plan,
-    }),
   });
   const session = await response.json();
   return session;

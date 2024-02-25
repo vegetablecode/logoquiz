@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
 import { ErrorBoundary } from '@sentry/nextjs';
-import { Work_Sans } from 'next/font/google';
+import { Montserrat, Nunito } from 'next/font/google';
 import { themeChange } from 'theme-change';
 import { Toast } from 'common/components/layout/Toast';
 import ProtectedRoute from 'modules/auth/components/ProtectedRoute';
@@ -19,7 +19,7 @@ import { getUserData } from 'modules/auth/lib';
 import Metadata from 'common/components/layout/Metadata';
 import Script from 'next/script';
 
-const workSans = Work_Sans({
+const workSans = Montserrat({
   subsets: ['latin'],
   variable: '--font-family-sans',
   fallback: ['system-ui', 'Helvetica Neue', 'Helvetica', 'Arial'],
