@@ -276,7 +276,7 @@ const Page = () => {
     <>
       <div className="text-center p-8 py-8 text-white flex justify-center items-center flex-col space-y-4">
         <div className="flex flex-col space-y-2">
-          <div className="text-4xl font-semibold">$49</div>
+          <div className="text-4xl font-semibold">$39</div>
           <div>3 proposals + 2 revisions ✅</div>
           <div>12 hour delivery 💨</div>
         </div>
@@ -290,15 +290,19 @@ const Page = () => {
               <div>✓ 12h delivery</div>
               <div>✓ 2 revisions</div>
               <div>✓ 3 proposals</div>
-              <div>✓ full ownership</div>
-              <div>✓ trademarkable</div>
+              <div>✓ Full ownership</div>
+              <div>✓ Trademarkable</div>
             </div>
           </div>
         </div>
-        <div></div>
-        <button onClick={() => saveAndPay()} className="btn btn-primary">
-          Pay - $49 USD
-        </button>
+        <div className="w-full flex flex-col space-y-2">
+          <button onClick={() => setStep(0)} className="btn">
+            Go back to quiz
+          </button>
+          <button onClick={() => saveAndPay()} className="btn btn-primary">
+            Pay - $39 USD
+          </button>
+        </div>
       </div>
     </>
   );
