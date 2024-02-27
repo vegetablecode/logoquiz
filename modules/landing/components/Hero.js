@@ -26,7 +26,7 @@ const Hero = () => {
                 onClick={() => router.push('/photos')}
                 className="btn btn-primary text-lg"
               >
-                Start the Quiz Now! ✍️
+                Make my logo now ✨
               </button>
             </Link>
           </div>
