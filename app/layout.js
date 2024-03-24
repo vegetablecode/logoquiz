@@ -84,6 +84,18 @@ export default function RootLayout({ children }) {
           })(window, document, "clarity", "script", "${process.env.NEXT_PUBLIC_CLARITY}");
         `}
         </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7RNRLPT97K"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7RNRLPT97K');
+    `}
+        </Script>
         {process.env.NEXT_PUBLIC_ANALYTICS_TOKEN ? (
           <script
             defer
