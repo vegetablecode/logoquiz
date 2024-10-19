@@ -15,7 +15,7 @@ const Showcase = () => {
           Choose between 'makeover' and 'enhance' modes ! ✨
         </div>
         <div class="flex pt-2 pb-4 justify-center items-center">
-          <ModelSwitcher model={model} setModel={setModel} />
+          <ModelSwitcher model={model} setModel={setModel} demo={true} />
         </div>
         <img
           className="card w-full max-w-2xl"

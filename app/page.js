@@ -1,215 +1,214 @@
 'use client';
 
+import Metadata from 'common/components/layout/Metadata';
+import AITechnology from 'modules/landing/components/AITechnology';
+import About from 'modules/landing/components/About';
+import Affordability from 'modules/landing/components/Affordability';
+import DesignModes from 'modules/landing/components/DesignModes';
+import FAQ from 'modules/landing/components/FAQ';
 import Footer from 'modules/landing/components/Footer';
 import Hero from 'modules/landing/components/Hero';
 import Navbar from 'modules/landing/components/Navbar';
-import { LOGOS } from 'modules/landing/consts';
-import Link from 'next/link';
+import Spaces from 'modules/landing/components/Spaces';
+import Steps from 'modules/landing/components/Steps';
+import TakeAction from 'modules/landing/components/TakeAction';
+import Testimonials from 'modules/landing/components/Testimonials';
+import WhyUs from 'modules/landing/components/WhyUs';
 
-const About = () => (
-  <div className="hero py-4 bg-base-200">
-    <div className="hero-content flex-col lg:flex-row">
-      <img
-        src="/makeover-example.jpg"
-        className="sm:max-w-sm max-w-64 card shadow-2xl sm:m-12"
-      />
-      <div>
-        <h1 className="text-3xl sm:text-5xl font-bold">
-          AI-Enhanced Design for Your Interior & Exterior
-        </h1>
-        <div className="py-6">
-          Create amazing images of any space in seconds with our revolutionary
-          AI design tool. It’s perfect for professionals and individuals who
-          want to design with ease and flexibility. You can try out different
-          styles, colors, and layouts with no restrictions.
-        </div>
-        <button className="btn btn-primary">Get Started!</button>
-      </div>
-    </div>
-  </div>
-);
-
-const Step = ({ icon, title, description }) => (
-  <div className="text-center flex flex-col justify-start max-w-sm space-y-4 items-center">
-    <div className="flex items-center justify-center h-24 w-24 shadow-2xl rounded-[28px] bg-gray-900">
-      <div className="text-4xl">{icon}</div>
-    </div>
-    <div>
-      <div className="font-semibold text-xl py-2">{title}</div>
-      <div>{description}</div>
-    </div>
-  </div>
-);
-
-const Preview = () => (
-  <div className="py-24 flex flex-col items-center justify-center space-y-4 bg-gray-800 text-white ">
-    <div className="flex flex-col items-center justify-center space-y-2">
-      <h2 className="text-3xl sm:text-5xl max-w-xl text-center font-bold">
-        How to get your perfect logo in 3 easy steps?
-      </h2>
-      <div className="pt-4">Just follow these 3 simple steps:</div>
-    </div>
-    <div className="py-6 md:flex-row flex-col flex px-4 space-y-16 md:space-y-0 md:space-x-4">
-      <Step
-        icon="✍️"
-        title="Take a QUIZ"
-        description="Answer a few questions about your preferences, such as colors, styles, text, and industry. It only takes a few minutes and it helps us understand your needs better"
-      />
-      <Step
-        icon="🔐"
-        title="Pay Securely"
-        description="Tell us what kind of style you like, what colors you prefer, what furniture you need, and any other details that matter to you."
-      />
-      <Step
-        icon="📥"
-        title="Receive your logo"
-        description="Within 12 hours, you will receive 4 logo proposals based on your quiz answers. You can choose one and download it in high-quality format, or you can request up to 2 revisions for free."
-      />
-    </div>
-  </div>
-);
-
-const Portfolio = () => (
-  <div className="flex flex-col py-12 space-y-4 items-center justify-center">
-    <h2 className="text-3xl sm:text-5xl max-w-xl text-center font-bold">
-      Portfolio
-    </h2>
-    <div className="pt-1 pb-5">Here are some of logos we created</div>
-    <div className="grid grid-cols-3 sm:grid-cols-5 gap-4 ">
-      {LOGOS.map((item) => (
-        <img src={item} className="card shadow-xl" />
-      ))}
-    </div>
-  </div>
-);
-
-const ABOUT = [
-  {
-    id: 0,
+const CONTENT = {
+  metadata: {
+    title: 'Buy a Logo | Professional Logo Design Services | Buy a Logo',
     description:
-      'I was amazed by how fast and easy it was to get a logo for my new business. The quiz was fun and the logo proposals were spot on. I highly recommend SuperLogo to anyone who needs a professional logo.',
-    name: 'Anna',
-    position: 'founder',
-    company: "Anna's Bakery",
-    avatar: '/avatars/anna.jpg',
+      'Transform your brand with Buy a Logo. Get custom logo designs in 24 hours. Take our quiz, purchase a logo package, and receive 3 proposals with 2 free revisions. Affordable logo design services starting at $39.',
   },
-  {
-    id: 1,
-    description:
-      'SuperLogo is the best logo design service I have ever used. They delivered exactly what I wanted in less than a day. The logo looks great on my website and social media. Thank you SuperLogo!',
-    name: 'James',
-    position: 'owner',
-    company: 'James Fitness',
-    avatar: '/avatars/james.jpg',
+  hero: {
+    h1: ['Buy a Logo That Defines Your Brand 🎨✨'],
+    h2: 'Unlock the power of professional logo design services. Get a custom logo effortlessly with Buy a Logo - your go-to platform for affordable and high-quality logo purchases.',
   },
-
-  {
-    id: 2,
-    description:
-      'I had no idea what kind of logo I wanted for my brand, but SuperLogo helped me figure it out. The quiz was very helpful and the logo proposals were creative and unique. I love my new logo and I’m very happy with the service.',
-    name: 'Lisa',
-    position: 'creator',
-    company: 'LS Art',
-    avatar: '/avatars/lisa.jpg',
+  about: {
+    h1: 'Why Buy a Logo is Your Ultimate Logo Design Solution 🚀',
+    h2: 'Buy a Logo stands out as the premier logo design service, offering unparalleled features and results. From sleek minimalist designs to bold, eye-catching logos, our expert designers deliver professional-level creations accessible to businesses of all sizes.',
   },
-];
-
-const AboutUs = () => (
-  <div className="flex flex-col space-y-4 py-12 items-center justify-center">
-    <h2 className="text-3xl sm:text-5xl max-w-xl text-center font-bold">
-      What our customers say about us
-    </h2>
-    <div className="pt-2 pb-6">Here are some of our reviews ✅</div>
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      {ABOUT.map((item) => (
-        <div className="bg-white overflow-hidden card flex flex-col shadow-xl justify-between w-full">
-          <div>
-            <div className="overflow-hidden h-48 xl:h-72">
-              <img src={item.avatar} />
-            </div>
-            <div className="p-5 opacity-80">{item.description}</div>
-          </div>
-          <div className="p-5">
-            <div>{item.name}</div>
-            <div className="text-sm opacity-80">
-              {item.position} of <span>{item.company}</span>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const ANSWERS = [
-  {
-    question: 'What if I don’t like any of the logo proposals?',
-    answer:
-      'If you are not satisfied with any of the logo proposals, you can request up to 2 revisions for free. You can also contact us and we will try our best to accommodate your needs.',
+  spaces: {
+    h1: 'Logo Design Services for Every Business 💼',
+    h2: "Whether you're a startup, small business, or established brand, Buy a Logo's cutting-edge design process adapts to all needs. Unlock your brand's full potential with our top-rated logo purchase options.",
   },
-  {
-    question: 'What format will I receive my logo in?',
-    answer:
-      'You will receive your logo in PNG format in high resolution, which are suitable for web and print use.',
+  steps: {
+    heading: 'Buy a Logo in 3 Simple Steps',
+    h1: 'Take Our Logo Quiz 📋',
+    d1: 'Start with a quick questionnaire. Our expert designers use your input to create the perfect logo!',
+    h2: 'Choose Your Logo Package 💰',
+    d2: 'Select from our affordable logo design services, starting at just $39 for 3 custom logo proposals.',
+    h3: 'Receive Your Custom Logos 🎉',
+    d3: 'Get 3 professional logo designs within 24 hours and enjoy 2 free revision rounds to perfect your choice.',
   },
-  {
-    question: 'What if I need more than one logo?',
-    answer:
-      'If you need more than one logo, you can take the quiz again and pay for another logo design. Alternatively, you can contact us and we will offer you a special discount for multiple logos.',
+  features: {
+    h1: 'What Makes Buy a Logo the Top Logo Design Service?',
+    h2: "Join thousands who've discovered why Buy a Logo is the ultimate solution to buy a logo. Our streamlined process offers unmatched ease, creativity, and affordability in logo design services.",
   },
-];
-
-const FAQ = () => (
-  <div className="flex space-y-2 flex-col py-12">
-    <div className="self-center text-center flex flex-col space-y-2 py-4">
-      <h2 className="text-3xl sm:text-5xl max-w-xl font-bold">
-        Frequently asked questions
-      </h2>
-      <div className="pt-3 pb-4">Browse most asked questions</div>
-    </div>
-    {ANSWERS.map(({ answer, question }) => (
-      <div className="collapse collapse-arrow bg-white p-2">
-        <input type="radio" name="my-accordion-2" defaultChecked />
-        <div className="collapse-title text-lg font-semibold">{question}</div>
-        <div className="collapse-content">
-          <p>{answer}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-);
-
-const BottomHook = () => (
-  <div className="bg-[url('/logos.jpg')] h-64 overflow-hidden my-12 w-full card">
-    <div className="bg-black w-full h-full bg-opacity-80">
-      <div className="text-center flex text-white h-full flex-col items-center justify-center space-y-4">
-        <div className="text-xl font-bold">Ready to get your logo?</div>
-        <div className="max-w-md">
-          Don’t wait any longer and start the quiz now. It’s fast, easy, and
-          fun. You will get a stunning logo for your brand in 12 hours or less,
-          or your money back.
-        </div>
-        <Link href="/quiz">
-          <button className="btn">I want my logo!</button>
-        </Link>
-      </div>
-    </div>
-  </div>
-);
+  reviews: {
+    h1: 'See Why Clients Love Our Logo Design Services',
+    h2: "Read authentic testimonials from satisfied customers who've purchased logos through Buy a Logo. Discover how our top-rated service has transformed brands and delighted business owners.",
+  },
+  action: {
+    h1: 'Ready to Buy a Logo That Stands Out? 🏆',
+    h2: "Buy a Logo is your gateway to professional logo design. Transform your brand effortlessly and see why we're the top choice for logo purchases.",
+    buttonText: 'Start Your Logo Design Now ✨',
+  },
+  feature_1: {
+    img: '/landing/screenshots/styles.png',
+    bg: 'from-cyan-700 to-cyan-500',
+    h1: 'Personalized Logos from Expert Designers 🎨',
+    h2: "Our skilled designers tailor every logo to your unique brand. Experience why we're rated the best logo design service for creating your dream logo.",
+    buttonText: 'Start Your Logo Design Journey ✨',
+  },
+  feature_2: {
+    img: '/landing/screenshots/prompts.png',
+    bg: 'from-teal-700 to-teal-500',
+    h1: 'Cutting-Edge Design: The Future of Branding 🚀',
+    h2: "Buy a Logo offers the most advanced logo design process. Our extensive library of styles and options showcases why we're considered the top platform to buy a logo.",
+    buttonText: 'Explore Top-Rated Logo Designs ✨',
+  },
+  feature_3: {
+    img: '/landing/screenshots/builder.png',
+    bg: 'from-yellow-700 to-yellow-500',
+    h1: 'AI-Powered Color and Style Selector 🌈',
+    h2: 'Experiment with endless possibilities using our innovative tool. Visualize various color schemes and styles, perfecting every detail of your logo with our top-rated technology.',
+    buttonText: 'Try AI Color Design 🎨',
+  },
+  aiTechnology: {
+    h1: 'Powered by Expert Designers and Advanced Technology',
+    h2: 'Buy a Logo combines skilled designers with cutting-edge tools, setting the standard for logo design services. Our process ensures your logo is both beautiful and functional.',
+    features: [
+      {
+        label: 'Best-in-class brand analysis',
+        icon: '🧠',
+      },
+      {
+        label: 'Top-rated design-matching algorithms',
+        icon: '🎨',
+      },
+      {
+        label: 'Industry-leading creativity',
+        icon: '💡',
+      },
+      {
+        label: 'Advanced market trend insights',
+        icon: '🔍',
+      },
+    ],
+  },
+  affordability: {
+    h1: 'Professional Logo Design at Your Fingertips',
+    h2: 'Experience top-rated logo design services without breaking the bank:',
+    options: [
+      {
+        icon: '🆓',
+        title: 'Free Consultation',
+        description:
+          'Take our brand quiz and get expert advice on your logo needs. Perfect for understanding our revolutionary design process.',
+      },
+      {
+        icon: '💰',
+        title: 'Logo Purchase',
+        description:
+          'Buy a logo package starting at just $39. Get 3 custom designs and 2 revision rounds within 24 hours.',
+      },
+    ],
+  },
+  faq: [
+    {
+      question: 'What makes Buy a Logo the top logo design service?',
+      answer:
+        'Buy a Logo is recognized as the premier logo design solution due to our expert designers, quick turnaround time, and affordable pricing. Our service delivers professional-level designs quickly and affordably, setting us apart in the logo design market.',
+    },
+    {
+      question: 'How does the logo design process work?',
+      answer:
+        "Our logo design process is simple: take a quick brand quiz, choose your package, and receive 3 custom logo designs within 24 hours. You'll then have the opportunity for 2 rounds of revisions to perfect your chosen design.",
+    },
+    {
+      question: 'Can I try the logo design service for free?',
+      answer:
+        "While we don't offer free logo designs, we do provide a free consultation through our brand quiz. This helps you understand our process and allows our designers to get a sense of your brand before you commit to a purchase.",
+    },
+    {
+      question: 'How does Buy a Logo ensure high-quality logo designs?',
+      answer:
+        'Our team consists of skilled designers with extensive experience in branding. We combine their expertise with advanced design tools and a deep understanding of current market trends to create logos that are both visually appealing and effective for your brand.',
+    },
+    {
+      question: 'Is the logo design service suitable for all business types?',
+      answer:
+        "Absolutely! Whether you're a startup, small business, or established brand, our logo design service adapts to your specific needs. We've created logos for businesses across various industries and of all sizes.",
+    },
+    {
+      question: 'How customizable are the logo designs from Buy a Logo?',
+      answer:
+        'Our logo designs are highly customizable. After receiving your initial designs, you have two rounds of revisions where you can request changes to colors, fonts, layouts, or any other aspect of the design to ensure it perfectly matches your vision.',
+    },
+    {
+      question: 'Why choose Buy a Logo over hiring a freelance designer?',
+      answer:
+        "Buy a Logo offers significant advantages: we're more affordable, provide faster results (within 24 hours), and allow you to explore multiple design options easily. It's the perfect solution for those wanting professional-quality logos without the high cost and time investment of traditional design services.",
+    },
+    {
+      question: 'What file formats will I receive with my logo purchase?',
+      answer:
+        "When you buy a logo from us, you'll receive your final design in various file formats suitable for both print and digital use. This typically includes high-resolution PNG files, vector formats (AI or EPS), and JPEG versions.",
+    },
+    {
+      question: 'Can I request specific elements or styles in my logo design?',
+      answer:
+        "Yes! Our brand quiz and consultation process allows you to specify your preferences, including colors, styles, and any specific elements you'd like to see in your logo. Our designers will take these into account when creating your custom designs.",
+    },
+    {
+      question: "What if I'm not satisfied with my logo designs?",
+      answer:
+        "Customer satisfaction is our priority. If you're not happy with your initial designs, you have two rounds of revisions to refine the logo. In the rare case that you're still not satisfied, we'll work with you to find a solution or offer a refund as per our satisfaction guarantee policy.",
+    },
+  ],
+};
 
 const Page = () => {
+  const {
+    hero,
+    about,
+    spaces,
+    steps,
+    features,
+    reviews,
+    action,
+    aiTechnology,
+    affordability,
+    faq,
+  } = CONTENT;
   return (
     <>
-      <div className="w-full px-4 sm:px-8 pt-8 pb-16 max-w-7xl mx-auto">
+      <div className="w-full px-4 sm:px-8 py-4">
+        <Metadata />
         <Navbar />
-        <Hero />
-      </div>
-      <Preview />
-      <div className="w-full px-4 sm:px-8 py-4 max-w-7xl mx-auto">
-        <Portfolio />
-        <AboutUs />
-        <FAQ />
-        <BottomHook />
+        <Hero h1={hero.h1} h2={hero.h2} />
+        <About h1={about.h1} h2={about.h2} />
+        <Spaces h1={spaces.h1} h2={spaces.h2} />
+        <Steps
+          heading={steps.heading}
+          h1={steps.h1}
+          d1={steps.d1}
+          h2={steps.h2}
+          d2={steps.d2}
+          h3={steps.h3}
+          d3={steps.d3}
+        />
+        <AITechnology aiTechnology={aiTechnology} />
+        <Affordability affordability={affordability} />
+        <Testimonials h1={reviews.h1} h2={reviews.h2} />
+        <FAQ data={faq} />
+        <TakeAction
+          h1={action.h1}
+          h2={action.h2}
+          buttonText={action.buttonText}
+        />
       </div>
       <Footer />
     </>

@@ -51,7 +51,7 @@ const Score = () => (
           checked
         />
       </div>
-      <div>5/5 from 300+ clients</div>
+      <div>5/5 from 100+ users</div>
     </div>
   </div>
 );
