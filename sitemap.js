@@ -22,7 +22,7 @@ async function generateSitemapFile() {
   const blogPosts = POSTS;
   const blogSitemap = blogPosts.map((post) => ({
     loc: `${config.siteUrl}/blog/${post.id}`,
-    lastmod: post.updatedAt,
+    lastmod: new Date(post.updatedAt).toISOString(),
     changefreq: 'monthly',
     priority: 0.6,
   }));
