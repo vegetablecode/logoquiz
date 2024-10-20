@@ -1,38 +1,45 @@
-const { generateSitemap } = require('next-sitemap');
 const fs = require('fs');
 const path = require('path');
-const { POSTS } = require('modules/blog/posts');
+const { POSTS } = require('./modules/blog/posts'); // Ensure the path is correct
 
 async function generateSitemapFile() {
-  const config = {
-    siteUrl: process.env.SITE_URL || 'https://www.buyalogo.co',
-    generateRobotsTxt: true,
-    outDir: 'public',
-  };
+  const BASE_URL = 'https://www.buyalogo.co';
 
   const staticPages = ['/', '/blog', '/tos', '/privacy-policy'];
-
-  const staticSitemap = staticPages.map((page) => ({
-    loc: `${config.siteUrl}${page}`,
-    lastmod: new Date().toISOString(),
-    changefreq: 'weekly',
-    priority: page === '/' ? 1.0 : 0.8,
-  }));
+  const staticSitemap = staticPages
+    .map(
+      (page) => `
+    <url>
+      <loc>${BASE_URL}${page}</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>${page === '/' ? 1.0 : 0.8}</priority>
+    </url>`
+    )
+    .join('');
 
   const blogPosts = POSTS;
-  const blogSitemap = blogPosts.map((post) => ({
-    loc: `${config.siteUrl}/blog/${post.id}`,
-    lastmod: new Date(post.updatedAt).toISOString(),
-    changefreq: 'monthly',
-    priority: 0.6,
-  }));
+  const blogSitemap = blogPosts
+    .map(
+      (post) => `
+    <url>
+      <loc>${BASE_URL}/blog/${post.id}</loc>
+      <lastmod>${new Date().toISOString()}</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+    </url>`
+    )
+    .join('');
 
-  const sitemap = [...staticSitemap, ...blogSitemap];
-  const sitemapXML = await generateSitemap(config, sitemap);
+  const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${staticSitemap}
+    ${blogSitemap}
+  </urlset>`;
 
   fs.writeFileSync(
     path.join(process.cwd(), 'public', 'sitemap.xml'),
-    sitemapXML
+    sitemapContent
   );
 
   console.log('Sitemap generated successfully!');

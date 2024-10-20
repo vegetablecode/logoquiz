@@ -1,4 +1,5 @@
-export const POSTS = [
+// modules/blog/posts.js
+const POSTS = [
   {
     id: '5-reasons-professional-logo-design-services-essential-for-brand',
     title:
@@ -6,6 +7,7 @@ export const POSTS = [
     description:
       "Discover why investing in professional logo services is crucial for your brand's success. Learn how Buy a Logo's expert design team can elevate your business identity with top-notch logo design services.",
     img: '/misc/happy-cafe.jpeg',
-    updatedAt: '2024-10-19T14:30:00.000Z',
   },
 ];
+
+module.exports = { POSTS };
