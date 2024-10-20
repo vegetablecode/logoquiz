@@ -19,11 +19,13 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: postData.title,
       description: postData.description,
-      images: [
-        {
-          url: 'https://www.decoratly.com' + postData.img,
-        },
-      ],
+      ...(postData.img && {
+        images: [
+          {
+            url: `https://www.buyalogo.co${postData.img}`,
+          },
+        ],
+      }),
       url: `/blog/${postData.id}`,
     },
   };
