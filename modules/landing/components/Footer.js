@@ -8,9 +8,9 @@ const Footer = () => {
         <Link href="mailto:buyalogo.co@gmail.com" className="link link-hover">
           Support
         </Link>
-        {/* <Link href="/glossary" className="link link-hover">
+        <Link href="/glossary" className="link link-hover">
           Glossary
-        </Link> */}
+        </Link>
       </nav>
       <nav>
         <header className="footer-title">Legal</header>

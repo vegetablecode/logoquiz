@@ -1,171 +1,210 @@
 'use client';
 
-import Metadata from 'common/components/layout/Metadata';
+import SEO from 'common/components/layout/SEO';
 import AITechnology from 'modules/landing/components/AITechnology';
 import About from 'modules/landing/components/About';
 import Affordability from 'modules/landing/components/Affordability';
-import DesignModes from 'modules/landing/components/DesignModes';
 import FAQ from 'modules/landing/components/FAQ';
 import Footer from 'modules/landing/components/Footer';
+import Heading from 'modules/landing/components/Heading';
 import Hero from 'modules/landing/components/Hero';
+import HorizontalHero from 'modules/landing/components/HorizontalHero';
 import Navbar from 'modules/landing/components/Navbar';
+import Screenshot from 'modules/landing/components/Screenshot';
 import Spaces from 'modules/landing/components/Spaces';
 import Steps from 'modules/landing/components/Steps';
 import TakeAction from 'modules/landing/components/TakeAction';
+import TechnologyExplanation from 'modules/landing/components/TechnologyExplanation';
 import Testimonials from 'modules/landing/components/Testimonials';
-import WhyUs from 'modules/landing/components/WhyUs';
 
 const CONTENT = {
   metadata: {
-    title: 'Buy a Logo | Professional Logo Design Services | Buy a Logo',
+    title: 'Buy A Logo | Professional Custom Logo Design in 24 Hours',
     description:
-      'Transform your brand with Buy a Logo. Get custom logo designs in 24 hours. Take our quiz, purchase a logo package, and receive 3 proposals with 2 free revisions. Affordable logo design services starting at $39.',
+      'Buy a professional, trademarkable logo with our simple quiz. Get 3 custom designs in 24 hours. Full ownership rights included.',
   },
   hero: {
-    h1: ['Buy a Logo That Defines Your Brand 🎨✨'],
-    h2: 'Unlock the power of professional logo design services. Get a custom logo effortlessly with Buy a Logo - your go-to platform for affordable and high-quality logo purchases.',
+    h1: ['Buy A Logo - Get 3 Designs in 24 Hours 💫'],
+    h2: 'Get a professional, custom logo design that perfectly matches your brand. Take our simple style quiz, and receive 3 unique logo proposals within 24 hours. Includes full ownership rights and unlimited web use.',
   },
   about: {
-    h1: 'Why Buy a Logo is Your Ultimate Logo Design Solution 🚀',
-    h2: 'Buy a Logo stands out as the premier logo design service, offering unparalleled features and results. From sleek minimalist designs to bold, eye-catching logos, our expert designers deliver professional-level creations accessible to businesses of all sizes.',
+    h1: 'Why Buy A Logo From Us? 🎯',
+    h2: "Professional logo design shouldn't be complicated. Our streamlined process delivers custom, trademarkable logos within 24 hours. Take a quick quiz, and let us create the perfect logo for your brand.",
   },
   spaces: {
-    h1: 'Logo Design Services for Every Business 💼',
-    h2: "Whether you're a startup, small business, or established brand, Buy a Logo's cutting-edge design process adapts to all needs. Unlock your brand's full potential with our top-rated logo purchase options.",
+    h1: 'From Concept to Custom Logo 💫',
+    h2: "Watch your brand come to life with professional logo design. Whether you need a modern business logo or creative brand mark, our process delivers exactly what you're looking for.",
+    altText:
+      'Before and after comparison showing brand evolution through professional logo design process',
   },
   steps: {
-    heading: 'Buy a Logo in 3 Simple Steps',
-    h1: 'Take Our Logo Quiz 📋',
-    d1: 'Start with a quick questionnaire. Our expert designers use your input to create the perfect logo!',
-    h2: 'Choose Your Logo Package 💰',
-    d2: 'Select from our affordable logo design services, starting at just $39 for 3 custom logo proposals.',
-    h3: 'Receive Your Custom Logos 🎉',
-    d3: 'Get 3 professional logo designs within 24 hours and enjoy 2 free revision rounds to perfect your choice.',
+    heading: 'Buy Your Perfect Logo in 3 Steps ✨',
+    h1: 'Step 1: Take the Quiz 📋',
+    d1: 'Share your brand vision through our simple style quiz. Tell us about your business, preferences, and design needs.',
+    h2: 'Step 2: Get Proposals 🎨',
+    d2: 'Receive 3 unique, professional logo designs within 24 hours, each crafted to match your quiz responses.',
+    h3: 'Step 3: Perfect Your Logo ✨',
+    d3: 'Choose your favorite design and get 2 free revisions to ensure your logo is exactly right.',
   },
   features: {
-    h1: 'What Makes Buy a Logo the Top Logo Design Service?',
-    h2: "Join thousands who've discovered why Buy a Logo is the ultimate solution to buy a logo. Our streamlined process offers unmatched ease, creativity, and affordability in logo design services.",
+    h1: 'Professional Logo Design Made Simple 🎯',
+    h2: 'Experience the easiest way to buy a custom logo for your business.',
   },
   reviews: {
-    h1: 'See Why Clients Love Our Logo Design Services',
-    h2: "Read authentic testimonials from satisfied customers who've purchased logos through Buy a Logo. Discover how our top-rated service has transformed brands and delighted business owners.",
+    h1: 'Happy Logo Customers 🏆',
+    h2: 'Join thousands who have bought their perfect logo through our service.',
   },
   action: {
-    h1: 'Ready to Buy a Logo That Stands Out? 🏆',
-    h2: "Buy a Logo is your gateway to professional logo design. Transform your brand effortlessly and see why we're the top choice for logo purchases.",
-    buttonText: 'Start Your Logo Design Now ✨',
+    h1: 'Ready to Buy Your Logo? 🚀',
+    h2: 'Get started with our quick quiz and receive your custom logo designs in 24 hours.',
+    buttonText: 'Start Logo Quiz Now ✨',
   },
   feature_1: {
     img: '/landing/screenshots/styles.png',
-    bg: 'from-cyan-700 to-cyan-500',
-    h1: 'Personalized Logos from Expert Designers 🎨',
-    h2: "Our skilled designers tailor every logo to your unique brand. Experience why we're rated the best logo design service for creating your dream logo.",
-    buttonText: 'Start Your Logo Design Journey ✨',
+    bg: 'from-blue-700 to-blue-500',
+    h1: 'Professional Logo Design Quiz 🎭',
+    h2: 'Our comprehensive style quiz helps us understand your brand perfectly. Answer simple questions about your business and preferences to ensure your logo matches your vision exactly.',
+    altText:
+      'Interactive logo design quiz interface showing brand and style preference questions',
+    buttonText: 'Take the Quiz ✨',
   },
   feature_2: {
-    img: '/landing/screenshots/prompts.png',
-    bg: 'from-teal-700 to-teal-500',
-    h1: 'Cutting-Edge Design: The Future of Branding 🚀',
-    h2: "Buy a Logo offers the most advanced logo design process. Our extensive library of styles and options showcases why we're considered the top platform to buy a logo.",
-    buttonText: 'Explore Top-Rated Logo Designs ✨',
+    img: '/landing/screenshots/dark-mode.png',
+    bg: 'from-purple-700 to-purple-500',
+    h1: '3 Custom Logo Proposals 🎨',
+    h2: 'Receive three unique, professional logo designs within 24 hours. Each proposal is crafted based on your quiz responses, ensuring perfect alignment with your brand vision.',
+    altText:
+      'Sample of custom logo proposals showing different design approaches based on client preferences',
+    buttonText: 'See Example Logos ✨',
   },
   feature_3: {
-    img: '/landing/screenshots/builder.png',
-    bg: 'from-yellow-700 to-yellow-500',
-    h1: 'AI-Powered Color and Style Selector 🌈',
-    h2: 'Experiment with endless possibilities using our innovative tool. Visualize various color schemes and styles, perfecting every detail of your logo with our top-rated technology.',
-    buttonText: 'Try AI Color Design 🎨',
+    img: '/landing/screenshots/logo-text.png',
+    bg: 'from-green-700 to-green-500',
+    h1: 'Free Logo Revisions 🏗️',
+    h2: 'Perfect your chosen logo with two free revision rounds. Our designers will refine colors, fonts, and elements until your logo is exactly right.',
+    altText:
+      'Logo revision interface showing design refinement options and feedback system',
+    buttonText: 'Learn About Revisions 🎨',
   },
   aiTechnology: {
-    h1: 'Powered by Expert Designers and Advanced Technology',
-    h2: 'Buy a Logo combines skilled designers with cutting-edge tools, setting the standard for logo design services. Our process ensures your logo is both beautiful and functional.',
+    h1: 'Complete Logo Package 💫',
+    h2: 'Everything you need for your brand:',
     features: [
       {
-        label: 'Best-in-class brand analysis',
-        icon: '🧠',
+        label: 'High-res files',
+        icon: '📐',
       },
       {
-        label: 'Top-rated design-matching algorithms',
+        label: 'Full ownership',
+        icon: '⚙️',
+      },
+      {
+        label: 'Trademarkable',
         icon: '🎨',
       },
       {
-        label: 'Industry-leading creativity',
+        label: 'Web-ready',
         icon: '💡',
-      },
-      {
-        label: 'Advanced market trend insights',
-        icon: '🔍',
       },
     ],
   },
+  designModes: {
+    h1: 'Two Logo Approaches 🎯',
+    h2: 'Choose your design direction:',
+    mode1: {
+      title: 'Modern Business Logo',
+      description:
+        'Clean, professional designs perfect for business and corporate brands.',
+    },
+    mode2: {
+      title: 'Creative Brand Mark',
+      description:
+        'Unique, artistic logos ideal for creative businesses and personal brands.',
+    },
+  },
   affordability: {
-    h1: 'Professional Logo Design at Your Fingertips',
-    h2: 'Experience top-rated logo design services without breaking the bank:',
+    h1: 'All-Inclusive Logo Package 💰',
+    h2: 'Everything you need included:',
     options: [
       {
-        icon: '🆓',
-        title: 'Free Consultation',
+        icon: '💎',
+        title: 'Complete Logo Package',
         description:
-          'Take our brand quiz and get expert advice on your logo needs. Perfect for understanding our revolutionary design process.',
+          '3 custom designs in 24 hours, 2 revision rounds, high-res files, full ownership rights, and web-ready formats.',
+      },
+    ],
+  },
+  technologyExplanation: {
+    h1: 'Professional Logo Creation 🧠',
+    h2: 'Our design process ensures:',
+    keyTechnologies: [
+      {
+        name: 'Custom Creation',
+        description:
+          'Each logo is uniquely crafted based on your quiz responses, ensuring original designs that perfectly match your brand vision.',
       },
       {
-        icon: '💰',
-        title: 'Logo Purchase',
+        name: 'Quality Standards',
         description:
-          'Buy a logo package starting at just $39. Get 3 custom designs and 2 revision rounds within 24 hours.',
+          'Professional designers create trademarkable logos that work beautifully across all platforms and print materials.',
+      },
+      {
+        name: 'Fast Delivery',
+        description:
+          'Our streamlined process delivers three unique logo proposals within 24 hours, with quick revision turnaround.',
       },
     ],
   },
   faq: [
     {
-      question: 'What makes Buy a Logo the top logo design service?',
+      question: 'What do I get with my logo purchase?',
       answer:
-        'Buy a Logo is recognized as the premier logo design solution due to our expert designers, quick turnaround time, and affordable pricing. Our service delivers professional-level designs quickly and affordably, setting us apart in the logo design market.',
+        'Your logo package includes three unique logo proposals within 24 hours, two revision rounds to perfect your chosen design, and complete ownership rights. Your final logo comes in high-resolution PNG format (2800px) suitable for web and social media use. All logos are trademarkable and include full commercial usage rights.',
     },
     {
-      question: 'How does the logo design process work?',
+      question: 'How does the logo quiz work?',
       answer:
-        "Our logo design process is simple: take a quick brand quiz, choose your package, and receive 3 custom logo designs within 24 hours. You'll then have the opportunity for 2 rounds of revisions to perfect your chosen design.",
+        "Our logo quiz helps us understand your brand personality and design preferences. You'll answer questions about your business, target audience, preferred styles, and color preferences. This information helps our designers create logos that perfectly match your vision. The quiz typically takes less than 5 minutes to complete.",
     },
     {
-      question: 'Can I try the logo design service for free?',
+      question: 'Are the logos original and trademarkable?',
       answer:
-        "While we don't offer free logo designs, we do provide a free consultation through our brand quiz. This helps you understand our process and allows our designers to get a sense of your brand before you commit to a purchase.",
+        'Yes! Each logo is custom-designed based on your quiz responses, ensuring originality. Our designers create unique, trademarkable logos that you can register as your trademark. You receive full ownership rights, allowing you to use your logo however you wish.',
     },
     {
-      question: 'How does Buy a Logo ensure high-quality logo designs?',
+      question: 'What are the revision options?',
       answer:
-        'Our team consists of skilled designers with extensive experience in branding. We combine their expertise with advanced design tools and a deep understanding of current market trends to create logos that are both visually appealing and effective for your brand.',
+        'After receiving your three logo proposals, you can select your favorite design and request up to two rounds of revisions. This allows you to refine colors, fonts, proportions, or other elements until your logo is perfect. Our designers aim to complete revisions within 24 hours.',
     },
     {
-      question: 'Is the logo design service suitable for all business types?',
+      question: 'What file formats will I receive?',
       answer:
-        "Absolutely! Whether you're a startup, small business, or established brand, our logo design service adapts to your specific needs. We've created logos for businesses across various industries and of all sizes.",
+        'Your logo comes in high-resolution PNG format at 2800px size, perfect for web use, social media, and most digital applications. This resolution ensures your logo looks crisp and professional across all digital platforms.',
     },
     {
-      question: 'How customizable are the logo designs from Buy a Logo?',
+      question: 'How long does the whole process take?',
       answer:
-        'Our logo designs are highly customizable. After receiving your initial designs, you have two rounds of revisions where you can request changes to colors, fonts, layouts, or any other aspect of the design to ensure it perfectly matches your vision.',
+        "The entire process is quick and efficient. After completing the quiz and payment, you'll receive three logo proposals within 24 hours. If you need revisions, each round is typically completed within 24 hours as well. Most clients have their perfect logo within 2-3 days.",
     },
     {
-      question: 'Why choose Buy a Logo over hiring a freelance designer?',
+      question: "What if I don't like any of the proposals?",
       answer:
-        "Buy a Logo offers significant advantages: we're more affordable, provide faster results (within 24 hours), and allow you to explore multiple design options easily. It's the perfect solution for those wanting professional-quality logos without the high cost and time investment of traditional design services.",
+        'Our quiz-based approach helps ensure high satisfaction with initial proposals. However, you have two revision rounds to refine your chosen design. Our designers will work with your feedback to create a logo you love.',
     },
     {
-      question: 'What file formats will I receive with my logo purchase?',
+      question: 'Can I use my logo anywhere?',
       answer:
-        "When you buy a logo from us, you'll receive your final design in various file formats suitable for both print and digital use. This typically includes high-resolution PNG files, vector formats (AI or EPS), and JPEG versions.",
+        'Yes! You receive full ownership rights with your logo. You can use it on your website, social media, business cards, merchandise, signage, or any other application. The high-resolution format ensures quality display across digital platforms.',
     },
     {
-      question: 'Can I request specific elements or styles in my logo design?',
+      question: "What's included in the logo package?",
       answer:
-        "Yes! Our brand quiz and consultation process allows you to specify your preferences, including colors, styles, and any specific elements you'd like to see in your logo. Our designers will take these into account when creating your custom designs.",
+        'Your logo package includes everything you need: three custom logo proposals, two revision rounds, high-resolution files, and full ownership rights. Everything is included in one simple package.',
     },
     {
-      question: "What if I'm not satisfied with my logo designs?",
+      question: 'How do I know my logo will be unique?',
       answer:
-        "Customer satisfaction is our priority. If you're not happy with your initial designs, you have two rounds of revisions to refine the logo. In the rare case that you're still not satisfied, we'll work with you to find a solution or offer a refund as per our satisfaction guarantee policy.",
+        'Each logo is custom-designed based on your specific quiz responses and brand requirements. Our designers create original artwork for every client, ensuring your logo is unique and trademarkable.',
     },
   ],
 };
@@ -179,14 +218,20 @@ const Page = () => {
     features,
     reviews,
     action,
+    feature_1,
+    feature_2,
+    feature_3,
+    metadata,
     aiTechnology,
+    technologyExplanation,
+    designModes,
     affordability,
     faq,
   } = CONTENT;
   return (
     <>
       <div className="w-full px-4 sm:px-8 py-4">
-        <Metadata />
+        <SEO title={metadata.title} description={metadata.description} />
         <Navbar />
         <Hero h1={hero.h1} h2={hero.h2} />
         <About h1={about.h1} h2={about.h2} />
@@ -200,9 +245,56 @@ const Page = () => {
           h3={steps.h3}
           d3={steps.d3}
         />
+        <div className="py-12 flex flex-col space-y-5 mx-auto">
+          <Heading title={features.h1} subtitle={features.h2} />
+          <HorizontalHero
+            bg={feature_1.bg}
+            img={
+              <Screenshot
+                img={feature_1.img}
+                bg={feature_1.bg}
+                alt={feature_1.altText}
+              />
+            }
+            title={feature_1.h1}
+            description={feature_1.h2}
+            buttonText={feature_1.buttonText}
+            buttonAction={() => router.push('/photos')}
+          />
+          <HorizontalHero
+            bg={feature_2.bg}
+            img={
+              <Screenshot
+                img={feature_2.img}
+                bg={feature_2.bg}
+                alt={feature_2.altText}
+              />
+            }
+            title={feature_2.h1}
+            description={feature_2.h2}
+            buttonText={feature_2.buttonText}
+            buttonAction={() => router.push('/photos')}
+            right
+          />
+          <HorizontalHero
+            bg={feature_3.bg}
+            img={
+              <Screenshot
+                img={feature_3.img}
+                bg={feature_3.bg}
+                alt={feature_3.altText}
+              />
+            }
+            title={feature_3.h1}
+            description={feature_3.h2}
+            buttonText={feature_3.buttonText}
+            buttonAction={() => router.push('/photos')}
+          />
+        </div>
         <AITechnology aiTechnology={aiTechnology} />
         <Affordability affordability={affordability} />
         <Testimonials h1={reviews.h1} h2={reviews.h2} />
+        <TechnologyExplanation technologyExplanation={technologyExplanation} />
         <FAQ data={faq} />
         <TakeAction
           h1={action.h1}
