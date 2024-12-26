@@ -8,9 +8,10 @@ const Page = async () => {
 
   const CONTENT = {
     metadata: {
-      title: 'Decoratly - AI App for Home Decor | Transform Your Space',
+      title:
+        'Buy A Logo | Professional Logo Design Service in less than 24 Hours',
       description:
-        "Experience stunning room transformations with Decoratly's AI app for home decor. Upload a photo of your room and see the magic!",
+        'Get a professional logo in minutes. Start with our simple quiz. Get 3 custom designs in 24 hours. Full ownership rights included.',
     },
   };
 
