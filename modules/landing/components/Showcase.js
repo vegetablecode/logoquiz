@@ -71,9 +71,9 @@ const Showcase = () => {
           Design your own️ interior today! ☀️
         </div>
         <div className="opacity-80 text-xl">Upload a photo to start!</div>
-        <Link href="/photos" className="pt-4">
+        <a href="https://www.goodlogoai.com" target="_blank" rel="dofollow" className="pt-4">
           <button className="btn btn-primary">Take a photo ✨</button>
-        </Link>
+        </a>
       </div>
     </div>
   );

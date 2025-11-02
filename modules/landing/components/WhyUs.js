@@ -1,10 +1,8 @@
-import { useRouter } from 'next/navigation';
 import Heading from './Heading';
 import HorizontalHero from './HorizontalHero';
 import Screenshot from './Screenshot';
 
 const WhyUs = ({ h1, h2 }) => {
-  const router = useRouter();
   return (
     <div className="py-12 flex flex-col space-y-5 mx-auto">
       <Heading title={h1} subtitle={h2} />
@@ -19,7 +17,7 @@ const WhyUs = ({ h1, h2 }) => {
         title="Unleash Your Creativity 🌈"
         description="With Decoratly, you can experiment with various styles and ideas without any commitment. Perfect for homeowners, renters, and interior design enthusiasts."
         buttonText="Upload a photo now ✨"
-        buttonAction={() => router.push('/photos')}
+        buttonHref="https://www.goodlogoai.com"
       />
       <HorizontalHero
         img={
@@ -31,7 +29,7 @@ const WhyUs = ({ h1, h2 }) => {
         title="Advanced AI Technology 🤖"
         description="Our state-of-the-art AI ensures realistic and breathtaking transformations, making your interior design dreams a reality."
         buttonText="Try it now ✨"
-        buttonAction={() => router.push('/photos')}
+        buttonHref="https://www.goodlogoai.com"
         right
       />
       <HorizontalHero
@@ -44,7 +42,7 @@ const WhyUs = ({ h1, h2 }) => {
         title="User-Friendly Experience 😊"
         description="Simple, intuitive, and accessible to everyone. No prior design experience required."
         buttonText="Try it by yourself 🙌"
-        buttonAction={() => router.push('/photos')}
+        buttonHref="https://www.goodlogoai.com"
       />
       <HorizontalHero
         img={
@@ -56,7 +54,7 @@ const WhyUs = ({ h1, h2 }) => {
         title="Over 30 different designs to choose from 🎨"
         description="️We have hand-crafted 30 unique presets for you to redesign your interiors in seconds. All popular styles are included, such as Scandinavian Design and Mid-Century Modern. 🛋️"
         buttonText="Try it now ✨"
-        buttonAction={() => router.push('/photos')}
+        buttonHref="https://www.goodlogoai.com"
         right
       />
     </div>

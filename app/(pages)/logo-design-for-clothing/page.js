@@ -257,7 +257,7 @@ const Page = () => {
             title={feature_1.h1}
             description={feature_1.h2}
             buttonText={feature_1.buttonText}
-            buttonAction={() => router.push('/photos')}
+            buttonHref="https://www.goodlogoai.com"
           />
           <HorizontalHero
             bg={feature_2.bg}
@@ -271,7 +271,7 @@ const Page = () => {
             title={feature_2.h1}
             description={feature_2.h2}
             buttonText={feature_2.buttonText}
-            buttonAction={() => router.push('/photos')}
+            buttonHref="https://www.goodlogoai.com"
             right
           />
           <HorizontalHero
@@ -286,7 +286,7 @@ const Page = () => {
             title={feature_3.h1}
             description={feature_3.h2}
             buttonText={feature_3.buttonText}
-            buttonAction={() => router.push('/photos')}
+            buttonHref="https://www.goodlogoai.com"
           />
         </div>
         <AITechnology aiTechnology={aiTechnology} />

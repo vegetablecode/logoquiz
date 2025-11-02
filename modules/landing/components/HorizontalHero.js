@@ -7,6 +7,7 @@ const HorizontalHero = ({
   description,
   buttonText,
   buttonAction,
+  buttonHref,
   right = false,
 }) => {
   return (
@@ -24,7 +25,11 @@ const HorizontalHero = ({
             {description}
           </p>
           <div className="mt-5">
-            <PrimaryButton title={buttonText} onClick={buttonAction} />
+            <PrimaryButton 
+              title={buttonText} 
+              onClick={buttonAction}
+              href={buttonHref}
+            />
           </div>
         </div>
       </div>

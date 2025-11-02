@@ -1,9 +1,7 @@
-import { useRouter } from 'next/navigation';
 import Heading from './Heading';
 import PrimaryButton from './PrimaryButton';
 
 const TakeAction = ({ h1, h2, buttonText }) => {
-  const router = useRouter();
   return (
     <div className="pt-12 pb-24 mx-auto">
       <Heading title={h1} subtitle={h2} />
@@ -11,7 +9,7 @@ const TakeAction = ({ h1, h2, buttonText }) => {
       <div className="flex items-center justify-center">
         <PrimaryButton
           title={buttonText}
-          onClick={() => router.push('/quiz')}
+          href="https://www.goodlogoai.com"
         />
       </div>
     </div>

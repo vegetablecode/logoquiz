@@ -1,12 +1,9 @@
-import { useRouter } from 'next/navigation';
 import Gallery from './Gallery';
 import Score from './Score';
 import Logos from './Logos';
 import PrimaryButton from './PrimaryButton';
 
 const Hero = ({ h1, h2 }) => {
-  const router = useRouter();
-
   return (
     <>
       <Gallery />
@@ -18,7 +15,7 @@ const Hero = ({ h1, h2 }) => {
               {h2}
             </h2>
             <PrimaryButton
-              onClick={() => router.push('/quiz')}
+              href="https://www.goodlogoai.com"
               title="Take a Logo Quiz! ✨"
             />
           </div>
